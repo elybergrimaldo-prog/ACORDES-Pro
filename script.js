@@ -1,5 +1,3 @@
-
-
 Intro:
 F#m - D - A - E
 
