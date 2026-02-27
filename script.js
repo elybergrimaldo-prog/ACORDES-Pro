@@ -66,3 +66,50 @@ if(localStorage.getItem("temaOscuro") === "true"){
 }
 
 mostrarCanciones();
+const chords = {
+  C: {
+    name: "C Mayor",
+    variations: [
+      {
+        name: "Abierto",
+        image: "chords/C-open.png"
+      },
+      {
+        name: "Cejilla Traste 3",
+        image: "chords/C-barre-3.png"
+      }
+    ]
+  },
+
+  G: {
+    name: "G Mayor",
+    variations: [
+      {
+        name: "Abierto",
+        image: "chords/G-open.png"
+      }
+    ]
+  }function renderChord(chordKey) {
+  const chord = chords[chordKey];
+  const container = document.getElementById("chordContainer");
+
+  container.innerHTML = `
+    <div class="chord-card">
+      <h3>${chord.name}</h3>
+      <img id="chordImage" src="${chord.variations[0].image}" width="200">
+
+      <div>
+        ${chord.variations.map((v, index) => `
+          <button onclick="changeVariation('${chordKey}', ${index})">
+            ${v.name}
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+};function changeVariation(chordKey, index) {
+  const chord = chords[chordKey];
+  document.getElementById("chordImage").src =
+    chord.variations[index].image;
+}
