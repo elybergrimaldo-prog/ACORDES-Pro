@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const songs = [
-    {{
-  title: "GTA 6 (Tutorial)",
-  artist: "Estilo Corrido Tumbado",
-  lyrics: `
+    {
+      title: "GTA 6 (Tutorial)",
+      artist: "Estilo Corrido Tumbado",
+      lyrics: `
 Tonalidad: F#m
 Capo: 2 (opcional)
 
@@ -30,11 +30,37 @@ D - A - E - F#m
 Rasgueo sugerido:
 ↓ ↓ ↑ ↑ ↓ ↑
 `
-},
-{
-  title: "Dopamina (Tutorial)",
-  artist: "Estilo Regional Moderno",
-  lyrics: `
+    },
+    {
+      title: "Y Lloro (Tutorial)",
+      artist: "Regional Mexicano",
+      lyrics: `
+Tonalidad: G
+
+Intro:
+G - D - Em - C
+
+Verso:
+G
+Base sentimental
+
+D
+Cambio abierto
+
+Em
+Color menor
+
+C
+Resolución
+
+Coro:
+Em - C - G - D
+`
+    },
+    {
+      title: "Está Dañada (Tutorial)",
+      artist: "Estilo Norteño Moderno",
+      lyrics: `
 Tonalidad: Am
 
 Intro:
@@ -42,7 +68,7 @@ Am - G - F - E
 
 Verso:
 Am
-Base menor melancólica
+Progresión melancólica
 
 G
 Movimiento descendente
@@ -51,45 +77,42 @@ F
 Transición
 
 E
-Resolución fuerte
+Remate fuerte
 
 Coro:
 Am - F - C - G
-
-Rasgueo:
-↓ ↑ ↓ ↑ ↓
 `
-},
-{
-  title: "Tu Sancho (Tutorial)",
-  artist: "Estilo Corrido",
-  lyrics: `
-Tonalidad: G
+    },
+    {
+      title: "Dopamina (Tutorial)",
+      artist: "Regional Urbano",
+      lyrics: `
+Tonalidad: F#m
 
 Intro:
-G - D - Em - C
+F#m - E - D - C#
 
 Verso:
-G
-Base clásica regional
+F#m
+Base menor intensa
+
+E
+Cambio dinámico
 
 D
-Cambio rápido
+Preparación
 
-Em
-Color menor
-
-C
+C#
 Resolución
 
-Puente:
-Em - D - C - G
+Coro:
+D - A - E - F#m
 `
-},
-{
-  title: "1004 KM (Tutorial)",
-  artist: "Estilo Norteño Moderno",
-  lyrics: `
+    },
+    {
+      title: "Tu Sancho (Tutorial)",
+      artist: "Corrido Clásico",
+      lyrics: `
 Tonalidad: A
 
 Intro:
@@ -97,53 +120,64 @@ A - E - F#m - D
 
 Verso:
 A
-Progresión sentimental
+Progresión base
 
 E
-Cambio abierto
+Cambio limpio
 
 F#m
 Color menor
 
 D
-Cierre
+Resolución
+
+Puente:
+F#m - E - D - A
 `
-},
-{
-  title: "Estilo Tito Double P (Álbum)",
-  artist: "Regional Mexicano",
-  lyrics: `
+    },
+    {
+      title: "1004 KM (Tutorial)",
+      artist: "Estilo Norteño",
+      lyrics: `
+Tonalidad: D
+
+Intro:
+D - A - Bm - G
+
+Verso:
+D
+Base romántica
+
+A
+Cambio abierto
+
+Bm
+Color menor
+
+G
+Cierre
+
+Coro:
+G - D - A - Bm
+`
+    },
+    {
+      title: "Estilo Tito Double P (Álbum Tutorial)",
+      artist: "Regional Mexicano Moderno",
+      lyrics: `
 Tonalidad común: F#m / G#m
 
 Progresión típica:
 F#m - D - A - E
 
-Variante:
+Variante alternativa:
 G#m - E - B - F#
 
 Rasgueo tumbado:
 ↓ ↓ ↑ (pausa) ↑ ↓ ↑
-`
-}
-      title: "Canción Demo Regional",
-      artist: "AcordesPro",
-      lyrics: `
-C       G
-Esta es una prueba
 
-A       D
-Para ver si funciona
-`
-    },
-    {
-      title: "Requinto Norteño",
-      artist: "Demo",
-      lyrics: `
-G       D
-Intro requinto
-
-C       G
-Verso regional
+Tip:
+Usar requinto en escala menor natural
 `
     }
   ];
@@ -154,7 +188,8 @@ Verso regional
 
     songs
       .filter(song =>
-        song.title.toLowerCase().includes(filter.toLowerCase())
+        song.title.toLowerCase().includes(filter.toLowerCase()) ||
+        song.artist.toLowerCase().includes(filter.toLowerCase())
       )
       .forEach(song => {
         const div = document.createElement("div");
