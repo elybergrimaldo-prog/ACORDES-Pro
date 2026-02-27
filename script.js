@@ -1,12 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
 
-  const songs = [
-    {
-      title: "GTA 6 (Tutorial)",
-      artist: "Estilo Corrido Tumbado",
-      lyrics: `
-Tonalidad: F#m
-Capo: 2 (opcional)
 
 Intro:
 F#m - D - A - E
