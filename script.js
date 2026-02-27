@@ -113,3 +113,44 @@ const chords = {
   document.getElementById("chordImage").src =
     chord.variations[index].image;
 }
+const chords = {
+  C: {
+    name: "C Mayor",
+    variations: [
+      { name: "Abierto", image: "chords/C-open.png" },
+      { name: "Cejilla Traste 3", image: "chords/C-barre-3.png" }
+    ]
+  },
+  G: {
+    name: "G Mayor",
+    variations: [
+      { name: "Abierto", image: "chords/G-open.png" }
+    ]
+  }
+};
+
+function renderChord(chordKey) {
+  const chord = chords[chordKey];
+  const container = document.getElementById("contenedor-canciones");
+
+  container.innerHTML = `
+    <div class="chord-card">
+      <h2>${chord.name}</h2>
+      <img id="chordImage" src="${chord.variations[0].image}" width="200">
+
+      <div>
+        ${chord.variations.map((v, index) => `
+          <button onclick="changeVariation('${chordKey}', ${index})">
+            ${v.name}
+          </button>
+        `).join("")}
+      </div>
+    </div>
+  `;
+}
+
+function changeVariation(chordKey, index) {
+  const chord = chords[chordKey];
+  document.getElementById("chordImage").src =
+    chord.variations[index].image;
+}
