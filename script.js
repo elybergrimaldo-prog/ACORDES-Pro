@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   const songs = [
-    {
+    {{
   title: "GTA 6 (Tutorial)",
   artist: "Estilo Corrido Tumbado",
   lyrics: `
