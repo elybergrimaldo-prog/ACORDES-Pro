@@ -1,173 +1,34 @@
-Intro:
-F#m - D - A - E
+document.addEventListener("DOMContentLoaded", function () {
 
-Verso:
-F#m
-Progresión base estilo tumbado
-
-D
-Cambio limpio
-
-A
-Entrada de bajo sexto
-
-E
-Remate
-
-Coro:
-D - A - E - F#m
-
-Rasgueo sugerido:
-↓ ↓ ↑ ↑ ↓ ↑
-`
-    },
+  const songs = [
     {
-      title: "Y Lloro (Tutorial)",
-      artist: "Regional Mexicano",
+      title: "GTA 6 (Tutorial)",
+      artist: "Estilo Corrido Tumbado",
       lyrics: `
-Tonalidad: G
-
-Intro:
-G - D - Em - C
-
-Verso:
-G
-Base sentimental
-
-D
-Cambio abierto
-
-Em
-Color menor
-
-C
-Resolución
-
-Coro:
-Em - C - G - D
-`
-    },
-    {
-      title: "Está Dañada (Tutorial)",
-      artist: "Estilo Norteño Moderno",
-      lyrics: `
-Tonalidad: Am
-
-Intro:
-Am - G - F - E
-
-Verso:
-Am
-Progresión melancólica
-
-G
-Movimiento descendente
-
-F
-Transición
-
-E
-Remate fuerte
-
-Coro:
-Am - F - C - G
+[F#m]Intro moderno
+[D]Cambio limpio
+[A]Ambiente tumbado
+[E]Resolución
 `
     },
     {
       title: "Dopamina (Tutorial)",
       artist: "Regional Urbano",
       lyrics: `
-Tonalidad: F#m
-
-Intro:
-F#m - E - D - C#
-
-Verso:
-F#m
-Base menor intensa
-
-E
-Cambio dinámico
-
-D
-Preparación
-
-C#
-Resolución
-
-Coro:
-D - A - E - F#m
+[Am]Melancolía base
+[G]Movimiento
+[F]Transición
+[E]Remate
 `
     },
     {
       title: "Tu Sancho (Tutorial)",
       artist: "Corrido Clásico",
       lyrics: `
-Tonalidad: A
-
-Intro:
-A - E - F#m - D
-
-Verso:
-A
-Progresión base
-
-E
-Cambio limpio
-
-F#m
-Color menor
-
-D
-Resolución
-
-Puente:
-F#m - E - D - A
-`
-    },
-    {
-      title: "1004 KM (Tutorial)",
-      artist: "Estilo Norteño",
-      lyrics: `
-Tonalidad: D
-
-Intro:
-D - A - Bm - G
-
-Verso:
-D
-Base romántica
-
-A
-Cambio abierto
-
-Bm
-Color menor
-
-G
-Cierre
-
-Coro:
-G - D - A - Bm
-`
-    },
-    {
-      title: "Estilo Tito Double P (Álbum Tutorial)",
-      artist: "Regional Mexicano Moderno",
-      lyrics: `
-Tonalidad común: F#m / G#m
-
-Progresión típica:
-F#m - D - A - E
-
-Variante alternativa:
-G#m - E - B - F#
-
-Rasgueo tumbado:
-↓ ↓ ↑ (pausa) ↑ ↓ ↑
-
-Tip:
-Usar requinto en escala menor natural
+[G]Base tradicional
+[D]Cambio rápido
+[Em]Color menor
+[C]Resolución
 `
     }
   ];
@@ -178,17 +39,21 @@ Usar requinto en escala menor natural
 
     songs
       .filter(song =>
-        song.title.toLowerCase().includes(filter.toLowerCase()) ||
-        song.artist.toLowerCase().includes(filter.toLowerCase())
+        song.title.toLowerCase().includes(filter.toLowerCase())
       )
       .forEach(song => {
+
+        let processedLyrics = song.lyrics.replace(/\[(.*?)\]/g, function(match, chord){
+          return `<span class="chord">${chord}</span>`;
+        });
+
         const div = document.createElement("div");
         div.className = "song-card";
 
         div.innerHTML = `
           <h2>${song.title}</h2>
           <h3>${song.artist}</h3>
-          <pre>${song.lyrics}</pre>
+          <pre>${processedLyrics}</pre>
         `;
 
         container.appendChild(div);
@@ -199,14 +64,16 @@ Usar requinto en escala menor natural
 
   // BUSCADOR
   const input = document.querySelector("input");
-  input.addEventListener("input", function (e) {
+  input.addEventListener("input", function(e){
     renderSongs(e.target.value);
   });
 
   // MODO OSCURO
   const toggleBtn = document.getElementById("toggleTema");
-  toggleBtn.addEventListener("click", function () {
-    document.body.classList.toggle("dark");
-  });
+  if(toggleBtn){
+    toggleBtn.addEventListener("click", function(){
+      document.body.classList.toggle("dark");
+    });
+  }
 
 });
