@@ -1,0 +1,52 @@
+:root {
+  --bg: #ffffff;
+  --card: #f2f2f2;
+  --text: #000000;
+  --acorde: #0077ff;
+}
+
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --acorde: #00ffcc;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancion {
+  background: var(--card);
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.acorde {
+  color: var(--acorde);
+  font-weight: bold;
+  font-size: 18px;
+}
